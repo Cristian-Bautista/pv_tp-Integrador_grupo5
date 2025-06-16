@@ -1,4 +1,8 @@
-    const productos  = [
+   import { useEffect, useState } from "react";
+   import TarjetaProductos from "./TarjetaProductos";
+
+   const ListadoProducto = () =>{
+   const productos  = [
     {
     id: '1',
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -23,9 +27,22 @@
     rate: 4.1,
     count: 259
     }
-},
+}
 
-    
+];
 
-    ]
-    
+return (
+    //contenedor que orgraniza las tarjetas en fila//
+
+    <div style={{display: 'flex', gap:'1rem', flexWrap:'wrap', padding: '2rem'}}>
+        
+    {/*arreglo de productos por cada tarjeta con su informacion*/}
+
+    {productos.map((p) => (
+        <TarjetaProductos key={p.id} producto={p}/>
+))}
+</div>
+);
+};  
+
+export default ListadoProducto;
