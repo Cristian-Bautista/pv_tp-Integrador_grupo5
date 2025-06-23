@@ -10,17 +10,18 @@ export const ProductosProvider = ({ children }) => {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((data) => setProductos(data))
-      .catch((error) => console.error("Error al cargar productos:", error));
-  }, []);
-
-  
-  const toggleFavorito = (id) => {
+      .then((data) => {
+    setProductos((prev) => {
+    const nuevos =prev.filter(p => p.id >=1000);
+      return [...nuevos, ...data];
+    });
+  });
+}, []);
+const toggleFavorito = (id) => {
     setFavoritos((prev) =>
       prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]
     );
   };
-
   return (
     <ProductosContext.Provider
       value={{
