@@ -2,7 +2,7 @@
 import TarjetaProductos from "./TarjetaProductos";
 
 const ListadoProducto = () => {
-  const { productos } = useProductos();
+  const { productos,toggleFavorito } = useProductos();
 
   return (
     <>
@@ -17,7 +17,8 @@ const ListadoProducto = () => {
         }}
       >
                     {productos.map((p) => (
-                      <TarjetaProductos key={p.id} producto={p} />
+                      <TarjetaProductos key={p.id} producto={p} onfavoritetoggle={toggleFavorito} 
+                      />
                     ))}
               </div>
             </>
