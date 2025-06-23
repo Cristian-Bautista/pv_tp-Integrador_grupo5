@@ -2,13 +2,14 @@ import { useProductos } from "../Context/ProductoContext";
 import TarjetaProductos from "./TarjetaProductos";
 
 const Favoritos = () => {
-  const { productos, favoritos } = useProductos();
+  const { productos, favoritos, toggleFavorito } = useProductos();
 
-  const productosFavoritos = productos.filter((p) => Favoritos.includes(p.id));
+  const productosFavoritos= productos.filter((p) => 
+    favoritos.includes(p.id));
 
   return (
     <>
-      <h1>Productos Favoritos</h1>
+      <h1>Productos favoritos</h1>
       <div
         style={{
           display: "flex",
@@ -19,7 +20,11 @@ const Favoritos = () => {
         }}
       >
         {productosFavoritos.map((p) => (
-          <TarjetaProductos key={p.id} producto={p} />
+          <TarjetaProductos 
+          key={p.id} 
+          producto={p} 
+          onfavoritetoggle={toggleFavorito}
+          />
         ))}
       </div>
     </>
