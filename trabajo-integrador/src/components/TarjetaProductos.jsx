@@ -17,7 +17,7 @@ const TarjetaProductos=({ producto, onfavoritetoggle }) => {
             <p><strong>Precio:</strong> ${producto.price}</p>
             <p><strong>Categoria:</strong> {producto.category}</p>
             <p><strong>Rating:</strong> {producto.rating.rate} ({producto.rating.count})</p>
-            <button onClick={() => onfavoritetoggle(producto.id)}> favoritos</button> 
+            <button onClick={() => onfavoritetoggle(producto.id)}> Favoritos</button> 
             <Link to={`/detalle/${producto.id}`}>
                 <button>Ver mas</button>
             </Link>
