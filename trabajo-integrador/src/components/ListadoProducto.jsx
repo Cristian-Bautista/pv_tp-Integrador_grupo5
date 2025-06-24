@@ -1,4 +1,4 @@
-  import { useProductos } from "../Context/ProductoContext";
+import { useProductos } from "../Context/ProductoContext";
 import TarjetaProductos from "./TarjetaProductos";
 
 const ListadoProducto = () => {
