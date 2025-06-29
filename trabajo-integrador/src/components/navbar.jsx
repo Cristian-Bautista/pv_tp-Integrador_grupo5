@@ -10,7 +10,7 @@ const Navbar = () => {
         }}>
            <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>Inicio</Link>  
            <Link to="/favoritos" style={{ color: '#fff', textDecoration: 'none' }}>Favoritos</Link>
-           <Link to="/crear" style={{ color: '#fff', textDecoration: 'none' }}>Productos</Link>
+           <Link to="/crear" style={{ color: '#fff', textDecoration: 'none' }}>Agregar</Link>
         </nav>
     );
 };

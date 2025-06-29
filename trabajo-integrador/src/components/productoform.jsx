@@ -15,7 +15,11 @@ const ProductoForm = () => {
     price: "",
     description: "",
     category: "",
-    image: ""
+    image: "",
+    rating:{
+      rate: "",
+      count:"",
+    },
   });
 
   useEffect(() => {
@@ -25,15 +29,30 @@ const ProductoForm = () => {
         price: productoExistente.price,
         description: productoExistente.description,
         category: productoExistente.category,
-        image: productoExistente.image
+        image: productoExistente.image,
+        rating: {
+          rate: productoExistente.rating.rate,
+          count: productoExistente.rating.count,
+        }
       });
     }
   }, [esEdicion, productoExistente]);
 
 
-const handleChange = (e) => {
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === "rate" || name === "count") {
+      setformulario(prev => ({
+        ...prev,
+        rating: {
+          ...prev.rating,
+          [name]: value
+        }
+      }));
+    }else{
     setformulario(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -96,6 +115,23 @@ const handleChange = (e) => {
           name="image"
           placeholder="URL de la imagen"
           value={formulario.image}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="number"
+          step="0.1"
+          name="rate"
+          placeholder="Califacar"
+          value={formulario.rating.rate}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="number"
+          name="count"
+          placeholder="Cantidad de Venta"
+          value={formulario.rating.count}
           onChange={handleChange}
           required
         />
