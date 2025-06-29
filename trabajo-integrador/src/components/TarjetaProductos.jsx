@@ -1,22 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useProductos } from '../Context/ProductoContext';  
+import"./TarjetaProducto.css";
 
 const TarjetaProductos=({ producto, onfavoritetoggle }) => {
     const { favoritos } = useProductos();
     const esFavorito = favoritos.includes(producto.id);
 
     return (
-        <div style={{
-            border: '1px solid #ccc',
-            borderRadius: '10px',
-            padding: '1rem',
-            width: '250px',
-            textAlign: 'center'
-        }}>
+        <div className='tarjeta-producto'>
             <img
                 src={producto.image}
                 alt={producto.title}
-                style={{ width: '100%', height: '200px', objectFit: 'contain' }}
+                className='producto-img'
                  />
 
             <h3>{producto.title}</h3>
