@@ -26,4 +26,5 @@ const ListadoProducto = () => {
           );
         };
         
+
         export default ListadoProducto;
