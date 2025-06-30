@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useProductos } from '../Context/ProductoContext';  
 import"./TarjetaProducto.css";
-
 const TarjetaProductos=({ producto, onfavoritetoggle }) => {
     const { favoritos } = useProductos();
     const esFavorito = favoritos.includes(producto.id);

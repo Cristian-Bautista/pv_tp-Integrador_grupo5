@@ -7,24 +7,69 @@ import DetalleProducto from "./components/detalleproducto";
 import ProductoForm from "./components/productoform";
 import Home from "./pages/Home";
 import './App.css';
-
+import Login  from "./pages/Login";
+import Register from "./components/register";
+import { AuthProvider } from "./Context/AuthContext";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
-    <ProductosProvider>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/" element={<ListadoProducto />} />
-          <Route path="/detalle/:id" element={<DetalleProducto />} /> 
-          <Route path="favoritos" element={<Favoritos />} />
-          <Route path="/crear" element={<ProductoForm />} />
-          <Route path="/editar/:id" element={<ProductoForm />} /> 
-        </Routes>
-      </Router>
-    </ProductosProvider>
+    <AuthProvider>
+      <ProductosProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+
+           
+            <Route path="/home" element={<Home />} />
+            <Route
+              path="/"
+
+              element={
+                <PrivateRoute>
+                  <ListadoProducto />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/crear"
+              element={
+                <PrivateRoute>
+                  <ProductoForm />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/editar/:id"
+              element={
+                <PrivateRoute>
+                  <ProductoForm />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/detalle/:id"
+              element={
+                <PrivateRoute>
+                  <DetalleProducto />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/favoritos"
+              element={
+                <PrivateRoute>
+                  <Favoritos />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </Router>
+      </ProductosProvider>
+    </AuthProvider>
   );
-}
+};
 
 export default App;
