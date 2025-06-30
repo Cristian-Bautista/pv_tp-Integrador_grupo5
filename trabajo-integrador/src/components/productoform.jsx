@@ -102,16 +102,28 @@ const ProductoForm = () => {
           placeholder="Precio"
           value={formulario.price}
           onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="category"
-          placeholder="Categoría"
-          value={formulario.category}
-          onChange={handleChange}
-          required
-        />
+          />
+        <select
+  name="category"
+  value={formulario.category}
+  onChange={handleChange}
+  required
+          style={{
+            padding: '1rem',
+    fontSize: '1rem',
+    width: '100%',
+    borderRadius: '9px' 
+          }}
+>
+  <option value="">Categoría</option>
+  <option value="calzado">Calzado</option>
+  <option value="ropa">Ropa</option>
+  <option value="herramienta">Herramienta</option>
+  <option value="casa">Casa</option>
+  <option value="objetos">Objetos</option>
+</select>
+
+
         <input
           type="text"
           name="image"
@@ -124,7 +136,7 @@ const ProductoForm = () => {
           type="number"
           step="0.1"
           name="rate"
-          placeholder="Califacar"
+          placeholder="Calificar"
           value={formulario.rating.rate}
           onChange={handleChange}
           required
