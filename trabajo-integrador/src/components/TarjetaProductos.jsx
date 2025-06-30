@@ -15,10 +15,9 @@ const TarjetaProductos=({ producto, onfavoritetoggle }) => {
                  />
 
             <h3>{producto.title}</h3>
-            <p><strong>Precio:</strong> ${producto.price}</p>
-            <p><strong>Categoria:</strong> {producto.category}</p>
-            <p><strong>Rating:</strong> {producto.rating?.rate} ({producto.rating?.count})</p>
+            <p><strong>Precio:</strong> ${producto.price}</p>            
            
+            
             <button onClick={() => onfavoritetoggle(producto.id)}>
                 {esFavorito ? "Quitar de Favoritos" : "Agregar a Favoritos"}
             </button>
