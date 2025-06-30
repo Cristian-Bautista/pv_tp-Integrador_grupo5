@@ -1,10 +1,8 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext,useAuth } from '../context/AuthContext';
-
 
 const Login = () => {
-    const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -23,7 +21,7 @@ const Login = () => {
     const success = login(email, password);
 
     if (success) {
-      navigate('/'); // redirige a Home
+      navigate('/');
     } else {
       setError('Credenciales inválidas');
     }

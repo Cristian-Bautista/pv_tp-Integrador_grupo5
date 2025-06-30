@@ -68,7 +68,7 @@ const ProductoForm = () => {
       );
     } else {
       const nuevoProducto = {
-        id: Date.now(), // Generar un ID único
+        id: Date.now(), 
         ...formulario
       };
       setProductos(prev => [...prev, nuevoProducto]);
