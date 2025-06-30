@@ -3,8 +3,7 @@ import TarjetaProductos from "./TarjetaProductos";
 
 const Favoritos = () => {
   const { productos, favoritos, toggleFavorito } = useProductos();
-
-  const productosFavoritos= productos.filter((p) => 
+const productosFavoritos= productos.filter((p) => 
     favoritos.includes(p.id));
   
   return (
@@ -30,5 +29,4 @@ const Favoritos = () => {
     </>
   );
 };
-
 export default Favoritos;

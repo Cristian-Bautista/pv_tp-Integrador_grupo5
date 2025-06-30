@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { useAuth } from '../Context/AuthContext';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -8,23 +9,26 @@ const Login = () => {
   const [error, setError] = useState('');
 
   
-  const { login } = useContext(AuthContext);
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!email || !password) {
-      setError('Por favor complete todos los campos');
+      setError('complete campos');
       return;
     }
 
     const success = login(email, password);
 
     if (success) {
-      navigate('/'); // redirige a Home
+      setTimeout(() => {
+        
+      navigate("/"); 
+    }, 0);
     } else {
-      setError('Credenciales inválidas');
+      setError('Credenciales incorrecta');
     }
   };
 
@@ -37,13 +41,17 @@ const Login = () => {
           placeholder="Correo electrónico"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        /><br />
+        required
+        />
+        <br /><br />
         <input
           type="password"
           placeholder="Contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        /><br />
+         required
+        />
+        <br /><br />
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <button type="submit">Entrar</button>
       </form>
