@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
-import { useAuth } from '../Context/AuthContext';
+import { AuthContext,useAuth } from '../context/AuthContext';
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -9,26 +9,23 @@ const Login = () => {
   const [error, setError] = useState('');
 
   
-  const { login } = useAuth();
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!email || !password) {
-      setError('complete campos');
+      setError('Por favor complete todos los campos');
       return;
     }
 
     const success = login(email, password);
 
     if (success) {
-      setTimeout(() => {
-        
-      navigate("/"); 
-    }, 0);
+      navigate('/'); // redirige a Home
     } else {
-      setError('Credenciales incorrecta');
+      setError('Credenciales inválidas');
     }
   };
 
@@ -41,17 +38,13 @@ const Login = () => {
           placeholder="Correo electrónico"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        required
-        />
-        <br /><br />
+        /><br />
         <input
           type="password"
           placeholder="Contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-         required
-        />
-        <br /><br />
+        /><br />
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <button type="submit">Entrar</button>
       </form>
