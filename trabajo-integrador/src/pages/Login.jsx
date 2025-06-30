@@ -4,6 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 import './login.css';
 
 const Login = () => {
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -55,6 +56,7 @@ const Login = () => {
       console.error('Login error:', err);
     } finally {
       setIsSubmitting(false);
+
     }
   };
 
