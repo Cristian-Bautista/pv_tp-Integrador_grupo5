@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProductos } from "../Context/ProductoContext";
+import './productoform.css';
+
 
 const ProductoForm = () => {
   const { id } = useParams();
@@ -76,7 +78,7 @@ const ProductoForm = () => {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="form-container">
       <h2>{esEdicion ? "Editar Producto" : "Crear Nuevo Producto"}</h2>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "400px" }}>
         <input

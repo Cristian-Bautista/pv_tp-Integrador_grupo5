@@ -6,6 +6,9 @@ import Favoritos from "./components/favoritos";
 import DetalleProducto from "./components/detalleproducto";
 import ProductoForm from "./components/productoform";
 import Home from "./pages/Home";
+import './App.css';
+
+
 function App() {
   return (
     <ProductosProvider>

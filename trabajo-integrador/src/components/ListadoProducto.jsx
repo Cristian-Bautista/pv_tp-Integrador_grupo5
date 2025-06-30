@@ -6,7 +6,8 @@ const ListadoProducto = () => {
 
   return (
     <>
-      <h1>Listado de Productos</h1>
+      <h1 className="titulo-principal">Lista de Producto </h1>
+
       <div
         style={{
           display: "flex",

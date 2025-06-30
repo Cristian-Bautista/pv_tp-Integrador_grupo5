@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { useProductos } from "../Context/ProductoContext";
+import './detalleproducto.css';
 
 const DetalleProducto = () => {
   const { id } = useParams();
@@ -11,31 +12,36 @@ const DetalleProducto = () => {
   if (!producto) {
     return <p>Producto no encontrado</p>;
   }
-  
+
   const esFavorito = favoritos.includes(producto.id);
 
   return (
-    <div style={{ padding: "2rem", display: "flex", gap: "2rem", alignItems: "center" }}>
+    <div className='detalle-container'>
       <img
         src={producto.image}
         alt={producto.title}
-        style={{ width: "300px", height: "300px", objectFit: "contain" }}
+        className="detalle-img"
       />
-      <div>
+
+      <div className="detalle-info">
         <h2>{producto.title}</h2>
         <p><strong>Precio:</strong> ${producto.price}</p>
         <p><strong>Categoría:</strong> {producto.category}</p>
         <p><strong>Rating:</strong> {producto.rating.rate} ({producto.rating.count})</p>
         <p>{producto.description}</p>
 
-        <button onClick={() => toggleFavorito(producto.id)}>
-          {esFavorito ? "Quitar de Favoritos" : "Agregar a Favoritos"}
-        </button>
+        <div className="detalle-botones">
+          <button
+            onClick={() => toggleFavorito(producto.id)}
+            className="detalle-boton"
+          >
+            {esFavorito ? "Quitar de Favoritos" : "Agregar a Favoritos"}
+          </button>
 
-         <br /> <br />
-        <Link to={`/editar/${producto.id}`}>
-          <button>Editar Producto</button>
-        </Link>
+          <Link to={`/editar/${producto.id}`}>
+            <button className="detalle-boton editar">Editar Producto</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
