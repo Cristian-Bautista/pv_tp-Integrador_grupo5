@@ -1,3 +1,4 @@
+/*
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +40,11 @@
 
 .read-the-docs {
   color: #888;
+}
+*/
+body {
+  background-color: #e7b0c5;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
 }

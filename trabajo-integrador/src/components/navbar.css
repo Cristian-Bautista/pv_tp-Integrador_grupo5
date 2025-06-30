@@ -1,0 +1,25 @@
+.navbar {
+  background: linear-gradient(to right, #e49ec8, #d76cdd);
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 15px 15px;
+}
+
+.navbar a {
+  color: #0c0c0c;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', sans-serif;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #111111;
+  transform: scale(1.1);
+}
+
