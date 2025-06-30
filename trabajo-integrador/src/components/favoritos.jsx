@@ -6,7 +6,7 @@ const Favoritos = () => {
 
   const productosFavoritos= productos.filter((p) => 
     favoritos.includes(p.id));
-
+  
   return (
     <>
       <h1>Productos favoritos</h1>
@@ -30,5 +30,4 @@ const Favoritos = () => {
     </>
   );
 };
-
 export default Favoritos;
