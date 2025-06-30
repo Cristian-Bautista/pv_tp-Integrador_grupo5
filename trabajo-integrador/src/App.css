@@ -1,22 +1,63 @@
-/*
+:root {
+  --primary-color: #646cff;
+  --secondary-color: #61dafb;
+  --background-color: #f8f1f5;
+  --text-color: #2d3748;
+  --muted-text: #4a5568;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
-  transition: filter 300ms;
+  transition: var(--transition);
+  cursor: pointer;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--primary-color));
+  transform: scale(1.05);
 }
+
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em var(--secondary-color));
 }
 
 @keyframes logo-spin {
@@ -29,23 +70,42 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  .logo.spin {
     animation: logo-spin infinite 20s linear;
   }
 }
 
 .card {
+  background: var(--card-bg);
   padding: 2em;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin: 1rem 0;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .read-the-docs {
-  color: #888;
-}
-*/
-body {
-  background-color: #e7b0c5;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
+  color: var(--muted-text);
+  font-size: 0.9rem;
 }
 
+a:focus, button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+  
+  .logo {
+    height: 4em;
+    padding: 1em;
+  }
+}
