@@ -45,33 +45,54 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>Registro</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Correo electrónico"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Confirmar contraseña"
-          value={confirm}
-          onChange={(e) => setConfirm(e.target.value)}
-        />
-        <br />
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Registrarse</button>
-      </form>
+    <div className="register-container">
+      <div className="register-card">
+        <h2 className="register-title">Registro</h2>
+        <form className="register-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label className="form-label">Correo electrónico</label>
+            <input
+              className="form-input"
+              type="email"
+              placeholder="tu@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          
+          <div className="form-group">
+            <label className="form-label">Contraseña</label>
+            <input
+              className="form-input"
+              type="password"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          
+          <div className="form-group">
+            <label className="form-label">Confirmar contraseña</label>
+            <input
+              className="form-input"
+              type="password"
+              placeholder="••••••••"
+              value={confirm}
+              onChange={(e) => setConfirm(e.target.value)}
+            />
+          </div>
+          
+          {error && <div className="error-message">{error}</div>}
+          
+          <button type="submit" className="register-button">
+            Registrarse
+          </button>
+        </form>
+        
+        <div className="register-footer">
+          <p>¿Ya tienes una cuenta? <a href="/login" className="link">Inicia sesión</a></p>
+        </div>
+      </div>
     </div>
   );
 };
